@@ -8,18 +8,98 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0A0A0A; --text: #F5F2EC; --gold: #C9A84C; --text-muted: rgba(245, 242, 236, 0.6); --font-heading: 'Playfair Display', Georgia, serif; --font-body: 'Inter', -apple-system, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; background-image: linear-gradient(30deg, var(--gold) 1px, transparent 1px), linear-gradient(150deg, var(--gold) 1px, transparent 1px); background-size: 60px 104px; z-index: 0; }
+        section, header, footer { position: relative; z-index: 1; }
+        .divider { width: 100%; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto; }
+        .divider--full { max-width: 600px; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+        .hero__wordmark { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 600; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2rem; }
+        .hero__tagline { font-family: var(--font-heading); font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 400; color: var(--text); margin-bottom: 0.75rem; font-style: italic; }
+        .hero__sub-tagline { font-size: 0.95rem; color: var(--text-muted); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 3.5rem; }
+        .hero__cta { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease; }
+        .hero__cta:hover { background: var(--gold); color: var(--bg); }
+        .section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section__title { font-family: var(--font-heading); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500; text-align: center; margin-bottom: 3.5rem; color: var(--text); }
+        .what-we-do__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .what-we-do__card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--gold); margin-bottom: 1rem; }
+        .what-we-do__card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+        .how-it-works__steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
+        .how-it-works__step { flex: 1; max-width: 240px; text-align: center; padding: 0 1.5rem; }
+        .how-it-works__number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--gold); border-radius: 50%; font-family: var(--font-heading); font-size: 1.1rem; color: var(--gold); margin-bottom: 1.25rem; }
+        .how-it-works__step h4 { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+        .how-it-works__step p { font-size: 0.85rem; color: var(--text-muted); }
+        .how-it-works__connector { display: flex; align-items: center; padding-top: 24px; }
+        .how-it-works__connector svg { width: 48px; height: 12px; }
+        .why__points { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
+        .why__point { text-align: center; max-width: 240px; }
+        .why__point h4 { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--gold); margin-bottom: 0.5rem; }
+        .why__point p { font-size: 0.85rem; color: var(--text-muted); }
+        .why__separator { width: 1px; height: 48px; background: linear-gradient(180deg, transparent, var(--gold), transparent); }
+        .footer { text-align: center; padding: 4rem 2rem 3rem; border-top: 1px solid rgba(201, 168, 76, 0.15); }
+        .footer__wordmark { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; }
+        .footer__email { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; transition: color 0.3s ease; }
+        .footer__email:hover { color: var(--gold); }
+        .footer__copy { margin-top: 2rem; font-size: 0.75rem; color: rgba(245, 242, 236, 0.35); }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { .what-we-do__grid { grid-template-columns: 1fr; gap: 2.5rem; } .how-it-works__steps { flex-direction: column; align-items: center; gap: 2rem; } .how-it-works__connector { transform: rotate(90deg); padding-top: 0; } .why__points { flex-direction: column; gap: 2rem; } .why__separator { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); } .section { padding: 4rem 1.5rem; } }
+        @media (max-width: 480px) { .hero__wordmark { letter-spacing: 0.15em; } .hero__cta { padding: 0.85rem 2rem; font-size: 0.8rem; } }
+    </style>
 </head>
 <body>
     <header class="hero">
-        <h1>Sovereign Source</h1>
-        <p>We Find What Others Can't.</p>
-        <p>Discreet. Precise. Exclusive.</p>
-        <a href="mailto:connect@sovereign-source.io">Begin a Conversation</a>
+        <h1 class="hero__wordmark">Sovereign Source</h1>
+        <p class="hero__tagline">We Find What Others Can't.</p>
+        <p class="hero__sub-tagline">Discreet. Precise. Exclusive.</p>
+        <a href="https://buy.stripe.com/cNibJ07gm1EL9cSfWU87K00" class="hero__cta">Apply for Access — $750</a>
     </header>
-    <footer>
-        <div>Sovereign Source</div>
-        <a href="mailto:connect@sovereign-source.io">connect@sovereign-source.io</a>
-        <p>&copy; 2026 Sovereign Source. All rights reserved.</p>
+    <div class="divider divider--full"></div>
+    <section class="section fade-in">
+        <h2 class="section__title">What We Do</h2>
+        <div class="what-we-do__grid">
+            <div class="what-we-do__card"><h3>SaaS &amp; Technology Acquisitions</h3><p>We identify and vet high-value software businesses before they reach the open market. Every opportunity is pre-qualified for revenue, retention, and growth trajectory.</p></div>
+            <div class="what-we-do__card"><h3>Ultra-Premium Luxury Assets</h3><p>From rare timepieces to private aviation, we source assets that never appear in public listings. Discretion is absolute; introductions are by invitation only.</p></div>
+        </div>
+    </section>
+    <div class="divider"></div>
+    <section class="section fade-in">
+        <h2 class="section__title">How It Works</h2>
+        <div class="how-it-works__steps">
+            <div class="how-it-works__step"><div class="how-it-works__number">1</div><h4>Submit Criteria</h4><p>Tell us exactly what you're looking for — budget, category, and timeline.</p></div>
+            <div class="how-it-works__connector"><svg viewBox="0 0 48 12" fill="none"><line x1="0" y1="6" x2="38" y2="6" stroke="#C9A84C" stroke-width="1"/><polygon points="38,2 46,6 38,10" fill="#C9A84C"/></svg></div>
+            <div class="how-it-works__step"><div class="how-it-works__number">2</div><h4>We Source &amp; Vet</h4><p>Our network surfaces verified matches. We handle diligence so you don't waste time.</p></div>
+            <div class="how-it-works__connector"><svg viewBox="0 0 48 12" fill="none"><line x1="0" y1="6" x2="38" y2="6" stroke="#C9A84C" stroke-width="1"/><polygon points="38,2 46,6 38,10" fill="#C9A84C"/></svg></div>
+            <div class="how-it-works__step"><div class="how-it-works__number">3</div><h4>Private Introduction</h4><p>When the fit is right, we make a confidential introduction between parties.</p></div>
+        </div>
+    </section>
+    <div class="divider"></div>
+    <section class="section fade-in">
+        <h2 class="section__title">Why Sovereign Source</h2>
+        <div class="why__points">
+            <div class="why__point"><h4>Verified Opportunities Only</h4><p>Every deal is vetted. No spam, no speculation — only assets worth your attention.</p></div>
+            <div class="why__separator"></div>
+            <div class="why__point"><h4>Complete Confidentiality</h4><p>Your identity and intent remain private at every stage of the process.</p></div>
+            <div class="why__separator"></div>
+            <div class="why__point"><h4>One-Time Access. No Commitment.</h4><p>A single $750 intake fee gets you in. No retainer, no recurring charges — just results.</p></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__wordmark">Sovereign Source</div>
+        <a href="mailto:connect@sovereign-source.io" class="footer__email">connect@sovereign-source.io</a>
+        <p class="footer__copy">&copy; 2026 Sovereign Source. All rights reserved.</p>
     </footer>
+    <script>
+        (function() {
+            var els = document.querySelectorAll('.fade-in');
+            if (!('IntersectionObserver' in window)) { els.forEach(function(el) { el.classList.add('visible'); }); return; }
+            var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15 });
+            els.forEach(function(el) { observer.observe(el); });
+        })();
+    </script>
 </body>
 </html>
