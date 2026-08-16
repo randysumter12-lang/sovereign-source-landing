@@ -3,103 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Source — We Find What Others Can't.</title>
-    <meta name="description" content="Sovereign Source: Discreet sourcing of premium SaaS acquisitions and ultra-luxury assets. Verified opportunities only. Complete confidentiality.">
+    <title>Sovereign Source — Private Luxury Sourcing</title>
+    <meta name="description" content="A private sourcing firm for those who expect more. Real estate, watches, vehicles, art, jewelry, and exclusive experiences.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #0A0A0A; --text: #F5F2EC; --gold: #C9A84C; --text-muted: rgba(245, 242, 236, 0.6); --font-heading: 'Playfair Display', Georgia, serif; --font-body: 'Inter', -apple-system, sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--bg); color: var(--text); font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; background-image: linear-gradient(30deg, var(--gold) 1px, transparent 1px), linear-gradient(150deg, var(--gold) 1px, transparent 1px); background-size: 60px 104px; z-index: 0; }
-        section, header, footer { position: relative; z-index: 1; }
-        .divider { width: 100%; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto; }
-        .divider--full { max-width: 600px; }
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-        .hero__wordmark { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 600; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2rem; }
-        .hero__tagline { font-family: var(--font-heading); font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 400; color: var(--text); margin-bottom: 0.75rem; font-style: italic; }
-        .hero__sub-tagline { font-size: 0.95rem; color: var(--text-muted); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 3.5rem; }
-        .hero__cta { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease; }
-        .hero__cta:hover { background: var(--gold); color: var(--bg); }
-        .section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
-        .section__title { font-family: var(--font-heading); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500; text-align: center; margin-bottom: 3.5rem; color: var(--text); }
-        .what-we-do__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .what-we-do__card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--gold); margin-bottom: 1rem; }
-        .what-we-do__card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
-        .how-it-works__steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
-        .how-it-works__step { flex: 1; max-width: 240px; text-align: center; padding: 0 1.5rem; }
-        .how-it-works__number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--gold); border-radius: 50%; font-family: var(--font-heading); font-size: 1.1rem; color: var(--gold); margin-bottom: 1.25rem; }
-        .how-it-works__step h4 { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
-        .how-it-works__step p { font-size: 0.85rem; color: var(--text-muted); }
-        .how-it-works__connector { display: flex; align-items: center; padding-top: 24px; }
-        .how-it-works__connector svg { width: 48px; height: 12px; }
-        .why__points { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
-        .why__point { text-align: center; max-width: 240px; }
-        .why__point h4 { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--gold); margin-bottom: 0.5rem; }
-        .why__point p { font-size: 0.85rem; color: var(--text-muted); }
-        .why__separator { width: 1px; height: 48px; background: linear-gradient(180deg, transparent, var(--gold), transparent); }
-        .footer { text-align: center; padding: 4rem 2rem 3rem; border-top: 1px solid rgba(201, 168, 76, 0.15); }
-        .footer__wordmark { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; }
-        .footer__email { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; transition: color 0.3s ease; }
-        .footer__email:hover { color: var(--gold); }
-        .footer__copy { margin-top: 2rem; font-size: 0.75rem; color: rgba(245, 242, 236, 0.35); }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        @media (max-width: 768px) { .what-we-do__grid { grid-template-columns: 1fr; gap: 2.5rem; } .how-it-works__steps { flex-direction: column; align-items: center; gap: 2rem; } .how-it-works__connector { transform: rotate(90deg); padding-top: 0; } .why__points { flex-direction: column; gap: 2rem; } .why__separator { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); } .section { padding: 4rem 1.5rem; } }
-        @media (max-width: 480px) { .hero__wordmark { letter-spacing: 0.15em; } .hero__cta { padding: 0.85rem 2rem; font-size: 0.8rem; } }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0A0A0A;
+            --gold: #C9A84C;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+            --white: #FFFFFF;
+            --white-muted: rgba(255, 255, 255, 0.7);
+            --white-subtle: rgba(255, 255, 255, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .hero-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: var(--white);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .hero-sub {
+            font-size: 0.95rem;
+            color: var(--white-muted);
+            margin-bottom: 48px;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 16px 48px;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .hero-rule {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            margin-top: 64px;
+            border: none;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--gold);
+            margin-bottom: 64px;
+            letter-spacing: 0.05em;
+        }
+
+        /* WHAT WE SOURCE - CARDS */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .source-card {
+            background: var(--black);
+            border: 1px solid var(--gold);
+            padding: 40px 32px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .source-card:hover {
+            background: var(--gold-dim);
+        }
+
+        .source-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .source-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .source-desc {
+            font-size: 0.88rem;
+            color: var(--white-muted);
+            line-height: 1.5;
+        }
+
+        /* HOW IT WORKS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 0.88rem;
+            color: var(--white-muted);
+            line-height: 1.6;
+        }
+
+        /* DISCRETION */
+        .discretion {
+            max-width: 760px;
+            margin: 0 auto;
+            border: 1px solid var(--gold);
+            padding: 64px 48px;
+            text-align: center;
+        }
+
+        .discretion p {
+            font-size: 1rem;
+            color: var(--white-muted);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            text-align: center;
+            padding: 120px 24px;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .final-cta .sub {
+            font-size: 0.95rem;
+            color: var(--white-muted);
+            margin-bottom: 48px;
+        }
+
+        .final-cta .contact-line {
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: var(--white-subtle);
+            letter-spacing: 0.05em;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--white-subtle);
+            letter-spacing: 0.04em;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .discretion {
+                padding: 40px 24px;
+            }
+
+            .btn-gold {
+                padding: 14px 36px;
+            }
+
+            section {
+                padding: 80px 16px;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <h1 class="hero__wordmark">Sovereign Source</h1>
-        <p class="hero__tagline">We Find What Others Can't.</p>
-        <p class="hero__sub-tagline">Discreet. Precise. Exclusive.</p>
-        <a href="https://buy.stripe.com/cNibJ07gm1EL9cSfWU87K00" class="hero__cta">Apply for Access — $750</a>
-    </header>
-    <div class="divider divider--full"></div>
-    <section class="section fade-in">
-        <h2 class="section__title">What We Do</h2>
-        <div class="what-we-do__grid">
-            <div class="what-we-do__card"><h3>SaaS &amp; Technology Acquisitions</h3><p>We identify and vet high-value software businesses before they reach the open market. Every opportunity is pre-qualified for revenue, retention, and growth trajectory.</p></div>
-            <div class="what-we-do__card"><h3>Ultra-Premium Luxury Assets</h3><p>From rare timepieces to private aviation, we source assets that never appear in public listings. Discretion is absolute; introductions are by invitation only.</p></div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero-logo">SOVEREIGN SOURCE</h1>
+        <p class="hero-tagline">Tell us what you want. We find it.</p>
+        <p class="hero-sub">A private sourcing firm for those who expect more.</p>
+        <a href="mailto:connect@sovereign-source.io?subject=Sourcing%20Request" class="btn-gold">Submit a Request</a>
+        <hr class="hero-rule">
+    </section>
+
+    <!-- WHAT WE SOURCE -->
+    <section>
+        <h2 class="section-title">What We Source</h2>
+        <div class="source-grid">
+            <div class="source-card">
+                <span class="source-icon">&#x1F3DB;</span>
+                <h3 class="source-label">Real Estate</h3>
+                <p class="source-desc">Off-market estates, investment properties, and private land</p>
+            </div>
+            <div class="source-card">
+                <span class="source-icon">&#x231A;</span>
+                <h3 class="source-label">Luxury Watches</h3>
+                <p class="source-desc">Rare timepieces sourced from private collectors worldwide</p>
+            </div>
+            <div class="source-card">
+                <span class="source-icon">&#x1F3CE;</span>
+                <h3 class="source-label">Exotic Vehicles</h3>
+                <p class="source-desc">Pre-owned exotics, classics, and collector cars</p>
+            </div>
+            <div class="source-card">
+                <span class="source-icon">&#x1F5BC;</span>
+                <h3 class="source-label">Fine Art &amp; Collectibles</h3>
+                <p class="source-desc">Authenticated pieces from private estates and galleries</p>
+            </div>
+            <div class="source-card">
+                <span class="source-icon">&#x1F48E;</span>
+                <h3 class="source-label">Jewelry &amp; Diamonds</h3>
+                <p class="source-desc">Investment-grade stones and heirloom pieces</p>
+            </div>
+            <div class="source-card">
+                <span class="source-icon">&#x2726;</span>
+                <h3 class="source-label">Exclusive Experiences</h3>
+                <p class="source-desc">Private access, memberships, and rare opportunities</p>
+            </div>
         </div>
     </section>
-    <div class="divider"></div>
-    <section class="section fade-in">
-        <h2 class="section__title">How It Works</h2>
-        <div class="how-it-works__steps">
-            <div class="how-it-works__step"><div class="how-it-works__number">1</div><h4>Submit Criteria</h4><p>Tell us exactly what you're looking for — budget, category, and timeline.</p></div>
-            <div class="how-it-works__connector"><svg viewBox="0 0 48 12" fill="none"><line x1="0" y1="6" x2="38" y2="6" stroke="#C9A84C" stroke-width="1"/><polygon points="38,2 46,6 38,10" fill="#C9A84C"/></svg></div>
-            <div class="how-it-works__step"><div class="how-it-works__number">2</div><h4>We Source &amp; Vet</h4><p>Our network surfaces verified matches. We handle diligence so you don't waste time.</p></div>
-            <div class="how-it-works__connector"><svg viewBox="0 0 48 12" fill="none"><line x1="0" y1="6" x2="38" y2="6" stroke="#C9A84C" stroke-width="1"/><polygon points="38,2 46,6 38,10" fill="#C9A84C"/></svg></div>
-            <div class="how-it-works__step"><div class="how-it-works__number">3</div><h4>Private Introduction</h4><p>When the fit is right, we make a confidential introduction between parties.</p></div>
+
+    <!-- HOW IT WORKS -->
+    <section>
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Submit Your Request</h3>
+                <p class="step-desc">Tell us exactly what you're looking for. No request is too specific.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">We Source It</h3>
+                <p class="step-desc">Our network goes to work. We find what isn't publicly available.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">You Acquire It</h3>
+                <p class="step-desc">Deal confirmed. Finder's fee collected. You own what you wanted.</p>
+            </div>
         </div>
     </section>
-    <div class="divider"></div>
-    <section class="section fade-in">
-        <h2 class="section__title">Why Sovereign Source</h2>
-        <div class="why__points">
-            <div class="why__point"><h4>Verified Opportunities Only</h4><p>Every deal is vetted. No spam, no speculation — only assets worth your attention.</p></div>
-            <div class="why__separator"></div>
-            <div class="why__point"><h4>Complete Confidentiality</h4><p>Your identity and intent remain private at every stage of the process.</p></div>
-            <div class="why__separator"></div>
-            <div class="why__point"><h4>One-Time Access. No Commitment.</h4><p>A single $750 intake fee gets you in. No retainer, no recurring charges — just results.</p></div>
+
+    <!-- DISCRETION -->
+    <section>
+        <div class="discretion">
+            <p>Everything handled through Sovereign Source is treated with absolute discretion. No public listings. No auctions. No bidding wars. Just private access.</p>
         </div>
     </section>
-    <footer class="footer">
-        <div class="footer__wordmark">Sovereign Source</div>
-        <a href="mailto:connect@sovereign-source.io" class="footer__email">connect@sovereign-source.io</a>
-        <p class="footer__copy">&copy; 2026 Sovereign Source. All rights reserved.</p>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <h2>Ready to Source Something?</h2>
+        <p class="sub">Submit your request and a member of our team will be in touch.</p>
+        <a href="mailto:connect@sovereign-source.io?subject=Sourcing%20Request" class="btn-gold">Submit a Request</a>
+        <p class="contact-line">sovereign-source.io &nbsp;|&nbsp; connect@sovereign-source.io</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Sovereign Source. All rights reserved. | Private &amp; Confidential</p>
     </footer>
-    <script>
-        (function() {
-            var els = document.querySelectorAll('.fade-in');
-            if (!('IntersectionObserver' in window)) { els.forEach(function(el) { el.classList.add('visible'); }); return; }
-            var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15 });
-            els.forEach(function(el) { observer.observe(el); });
-        })();
-    </script>
+
 </body>
 </html>
