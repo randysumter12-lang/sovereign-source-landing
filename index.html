@@ -278,6 +278,50 @@
                 padding: 80px 16px;
             }
         }
+
+        /* CUSTOM ACQUISITION */
+        .custom-acq {
+            background: var(--black);
+            border-top: 1px solid var(--gold-dim);
+            border-bottom: 1px solid var(--gold-dim);
+        }
+
+        .custom-acq-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .custom-acq-desc {
+            font-size: 1rem;
+            color: var(--white-muted);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .custom-acq-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .custom-acq-examples span {
+            border: 1px solid var(--gold-dim);
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            padding: 8px 18px;
+            text-transform: uppercase;
+        }
+
+        .custom-acq-cta-text {
+            font-size: 0.9rem;
+            color: var(--white-muted);
+            margin-bottom: 32px;
+        }
+
     </style>
 </head>
 <body>
@@ -354,6 +398,28 @@
     <section>
         <div class="discretion">
             <p>Everything handled through Sovereign Source is treated with absolute discretion. No public listings. No auctions. No bidding wars. Just private access.</p>
+        </div>
+    </section>
+
+    <!-- CUSTOM ACQUISITION -->
+    <section class="custom-acq">
+        <div class="custom-acq-inner">
+            <h2 class="section-title">Something Else In Mind?</h2>
+            <p class="custom-acq-desc">If it holds value and you want it found, we source it. Our network extends well beyond any single category. If it exists, it can be found.</p>
+            <div class="custom-acq-examples">
+                <span>Yachts</span>
+                <span>Private Aircraft</span>
+                <span>Rare Wine &amp; Spirits</span>
+                <span>Vintage Memorabilia</span>
+                <span>Antique Furniture</span>
+                <span>Rare Books &amp; Manuscripts</span>
+                <span>Precious Metals &amp; Coins</span>
+                <span>Luxury Fashion</span>
+                <span>Classic Firearms</span>
+                <span>Private Club Access</span>
+            </div>
+            <p class="custom-acq-cta-text">Describe what you're looking for and we'll respond within 24 hours.</p>
+            <a href="mailto:connect@sovereign-source.io?subject=Custom%20Acquisition%20Request&body=I%20am%20looking%20for%3A%0A%0A%5BDescribe%20the%20item%2C%20specifications%2C%20condition%20preference%2C%20budget%20range%5D%0A%0ATimeline%3A%0A%0AAdditional%20notes%3A" class="btn-gold">Submit Custom Request</a>
         </div>
     </section>
 
